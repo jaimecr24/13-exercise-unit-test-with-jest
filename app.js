@@ -8,18 +8,20 @@ let oneEuroIs = {
 // declaramos una funcion con el mismo nombre "formEuroToDollar"
 const fromEuroToDollar = function(valueInEuro){
     // convertimos el valor a dolares
-    let valueInDollar = valueInEuro * 1.2;
+    let valueInDollar = valueInEuro * oneEuroIs["USD"];
     // retornamos el valor
     return valueInDollar;
 }
 
 const fromDollarToYen = function(valueInDollar){
-    let valueInYen = (valueInDollar / 1.2) * 127.9;
+    // convertimos primero a euros y luego a yenes
+    let valueInYen = (valueInDollar / oneEuroIs["USD"]) * oneEuroIs["JPY"];
     return valueInYen;
 }
 
 const fromYenToPound = function(valueInYen){
-    let valueInPound = (valueInYen/127.9) * 0.8;
+    // convertimos primero a euros y luego a pounds.
+    let valueInPound = (valueInYen / oneEuroIs["JPY"]) * oneEuroIs["GBP"];
     return valueInPound;
 }
 
